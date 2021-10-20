@@ -4,15 +4,24 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     name:{
         type: String,
-        required: true
+        require: true, 
+        index:true, 
+        unique:true,
+        sparse:true
     },
     sobrenome:{
         type: String,
-        required: true
+        require: true, 
+        index:true, 
+        unique:true,
+        sparse:true
     },
     email:{
-        type: String,
-        required: true
+        type: String, 
+        require: true, 
+        index:true, 
+        unique:true,
+        sparse:true
     },
     phone: {
         type: String,
