@@ -2,26 +2,26 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    name:{
+    name: { 
         type: String,
-        require: true, 
+        required: true
+    },
+    email : { 
+        type: String, 
+        required: true, 
         index:true, 
         unique:true,
-        sparse:true
+        sparse:true,
+        lowercase: true
+    },
+    password: { 
+        type: String, 
+        required:true,
+        select: false
     },
     sobrenome:{
         type: String,
-        require: true, 
-        index:true, 
-        unique:true,
-        sparse:true
-    },
-    email:{
-        type: String, 
-        require: true, 
-        index:true, 
-        unique:true,
-        sparse:true
+        required: true
     },
     phone: {
         type: String,
@@ -50,8 +50,7 @@ const schema = new Schema({
     rendaMes:{
         type: String,
         required: true
-    },
-    
+    }
 })
 
 module.exports = mongoose.model("Product", schema)

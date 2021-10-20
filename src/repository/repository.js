@@ -4,7 +4,7 @@ const Product = require('../models/Product');
 exports.get = async() => {
     const res = await Product
     .find({
-    }, 'name sobrenome email phone cep endereco1 endereco2 nacimento cpf rendaMes')
+    }, 'name sobrenome password email phone cep endereco1 endereco2 nacimento cpf rendaMes')
     return res;
 }
 
@@ -24,6 +24,7 @@ exports.update = async(id, data) => {
             $set: {
                 name: data.name,
                 sobrenome: data.sobrenome,
+                password: data.password,
                 email: data.email,
                 phone: data.phone,
                 cep: data.cep,

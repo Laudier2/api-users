@@ -13,6 +13,7 @@ exports.post = (req, res, next) => {
     contract.hasMinLen(req.body.name, 1, "O campo name é obrigatorio no minimo 1 item!")
     contract.hasMinLen(req.body.sobrenome, 1, "O campo sobrenome é obrigatorio no minimo 1 item!")
     contract.hasMinLen(req.body.email, 1, "O campo email é obrigatorio no minimo 1 item!")
+    contract.hasMinLen(req.body.password, 1, "O campo password é obrigatorio no minimo 1 item!")
     contract.hasMinLen(req.body.phone, 1, "O campo phone é obrigatorio no minimo 1 item!")
     contract.hasMinLen(req.body.cep, -1, "O campo cep é obrigatorio no minimo 1 item!")
     contract.hasMinLen(req.body.endereco1, 1, "O campo endereco1 é obrigatorio no minimo 1 item!")
