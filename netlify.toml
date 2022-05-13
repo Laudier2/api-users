@@ -1,7 +1,6 @@
 [build]
 base = "."
 command = "npm run build
-publish = "./build"
 
 [build.everoment]
 GET_DB_MONGO = mongodb+srv://kali:123hk@cluster0.nsdxx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
