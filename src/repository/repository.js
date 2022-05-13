@@ -1,43 +1,54 @@
 const mongoose = require('mongoose');
-const Product = require('../models/Product');
+const Users = require('../models/users');
 
-exports.get = async() => {
-    const res = await Product
-    .find({
-    }, 'name sobrenome password email phone cep endereco1 endereco2 nacimento cpf rendaMes')
+exports.autenticate = async (data) => {
+    const res = await Users
+        .findOne({
+            email: data.email,
+            password: data.password
+        })
     return res;
 }
 
-exports.getBayId = async(id) => {
-    const res = await Product.findById(id);
+exports.get = async () => {
+    const res = await Users
+        .find({
+        }, 'name email password imagem phone')
     return res;
 }
 
-exports.create = async(data) => {
-    const product = new Product(data)
+exports.getBayId = async (id) => {
+    const res = await Users.findById(id);
+    return res;
+}
+
+exports.create = async (data) => {
+
+    const product = new Users(data)
     await product.save();
+
 }
 
-exports.update = async(id, data) => {
-    await Product
+exports.update = async (id, data) => {
+    await Users
         .findByIdAndUpdate(id, {
             $set: {
                 name: data.name,
-                sobrenome: data.sobrenome,
+                //sobrenome: data.sobrenome,
                 password: data.password,
                 email: data.email,
                 phone: data.phone,
-                cep: data.cep,
-                endereco1: data.endereco1,
-                endereco2: data.endereco2,
-                nacimento: data.nacimento,
-                cpf: data.cpf,
-                rendaMes: data.rendaMes
+                imagem: data.imagem,
+                //endereco1: data.endereco1,
+                //endereco2: data.endereco2,
+                //nacimento: data.nacimento,
+                //cpf: data.cpf,
+                //rendaMes: data.rendaMes
             }
         })
 }
 
-exports.delete = async(id) => {
-    await Product
-    .findByIdAndDelete(id);
+exports.delete = async (id) => {
+    await Users
+        .findByIdAndDelete(id);
 }

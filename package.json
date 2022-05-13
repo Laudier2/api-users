@@ -15,5 +15,10 @@
     "mongoose": "^5.11.8",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0"
   }
 }
