@@ -7,7 +7,7 @@ require('dotenv').config()
 require('./models/db')
 
 const indexRouter = require('./routes/index');
-
+const port = (process.env.PORT || '3000');
 
 const app = express();
 
@@ -18,5 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+app.listen(port, () => {
+    console.log(`http://localhost:${port}`)
+})
 
 module.exports = app;
